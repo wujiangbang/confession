@@ -245,6 +245,13 @@ function Rise() {
 }
 
 window.onload = function () {
+  const name = new URL(location.href).searchParams.get('name');
+  if (name !== null) {
+    document.title = `To-->${name}`;
+    const doms = document.querySelectorAll('.name');
+    doms.forEach(v => (v.textContent = name));
+  }
+
   playBtn.onclick = function () {
     const music = document.getElementById('music');
     music.play().then(res => {
